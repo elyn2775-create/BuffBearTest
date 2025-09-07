@@ -7,7 +7,8 @@ const quizData = [
     { modulePart: "PART 3", moduleTitle: "工作内容偏好", question: "5. 以下三类工作内容，你最想长期聚焦的是？", options: [{ text: "A. 与人相关", scores: { hr: 3, sales: 3, supply: 1, brand: 2, finance: 1, it: 1 } }, { text: "B. 与数据/逻辑相关", scores: { hr: 1, sales: 1, supply: 2, brand: 1, finance: 3, it: 3 } }, { text: "C. 与创意/落地相关", scores: { hr: 1, sales: 2, supply: 2, brand: 3, finance: 1, it: 1 } }] },
     { modulePart: "PART 3", moduleTitle: "工作内容偏好", question: "6. 面对“从0到1搭建一个项目”，你最想负责的环节是？", options: [{ text: "A. 需求挖掘", scores: { hr: 3, sales: 3, supply: 1, brand: 2, finance: 1, it: 1 } }, { text: "B. 方案设计", scores: { hr: 1, sales: 1, supply: 2, brand: 1, finance: 3, it: 3 } }, { text: "C. 创意落地", scores: { hr: 1, sales: 2, supply: 1, brand: 3, finance: 1, it: 1 } }, { text: "D. 团队统筹", scores: { hr: 2, sales: 2, supply: 3, brand: 2, finance: 2, it: 2 } }] },
     { modulePart: "PART 3", moduleTitle: "工作内容偏好", question: "7. 你认为“有价值的工作”最核心的体现是？", options: [{ text: "A. 帮助他人解决问题，让团队/用户感受到温度", scores: { hr: 3, sales: 2, supply: 1, brand: 2, finance: 1, it: 1 } }, { text: "B. 用数据证明成果，为组织带来可量化的收益", scores: { hr: 1, sales: 3, supply: 2, brand: 1, finance: 3, it: 2 } }, { text: "C. 产出独特的创意，让产品/品牌被更多人认可", scores: { hr: 1, sales: 2, supply: 1, brand: 3, finance: 1, it: 1 } }, { text: "D. 优化现有模式，让工作流程更高效、更顺畅", scores: { hr: 1, sales: 1, supply: 3, brand: 2, finance: 2, it: 3 } }] },
-    { modulePart: "PART 4", moduleTitle: "工作环境", question: "8. 你喜欢独立专注还是协作沟通？", options: [{ text: "A. 非常独立专注", scores: { hr: 1, sales: 1, supply: 3, brand: 1, finance: 3, it: 3 } }, { text: "B. 比较喜欢独立专注", scores: { hr: 1, sales: 1, supply: 3, brand: 1, finance: 3, it: 3 } }, { text: "C. 一样", scores: { hr: 2, sales: 2, supply: 2, brand: 2, finance: 2, it: 2 } }, { text: "D. 比较喜欢协作沟通", scores: { hr: 3, sales: 2, supply: 2, brand: 3, finance: 2, it: 1 } }, { text: "E. 非常喜欢协作沟通", scores: { hr: 3, sales: 3, supply: 1, brand: 3, finance: 1, it: 1 } }] },
+    // --- 这里是修改的地方 ---
+    { modulePart: "PART 4", moduleTitle: "工作环境", question: "8. 你喜欢独立专注还是协作沟通？", options: [{ text: "A. 非常喜欢独立专注", scores: { hr: 1, sales: 1, supply: 3, brand: 1, finance: 3, it: 3 } }, { text: "B. 比较喜欢独立专注", scores: { hr: 1, sales: 1, supply: 3, brand: 1, finance: 3, it: 3 } }, { text: "C. 一样", scores: { hr: 2, sales: 2, supply: 2, brand: 2, finance: 2, it: 2 } }, { text: "D. 比较喜欢协作沟通", scores: { hr: 3, sales: 2, supply: 2, brand: 3, finance: 2, it: 1 } }, { text: "E. 非常喜欢协作沟通", scores: { hr: 3, sales: 3, supply: 1, brand: 3, finance: 1, it: 1 } }] },
     { modulePart: "PART 4", moduleTitle: "工作环境", question: "9. 你喜欢固定明确还是弹性自主的工作节奏？", options: [{ text: "A. 非常喜欢固定明确", scores: { hr: 1, sales: 1, supply: 3, brand: 1, finance: 1, it: 3 } }, { text: "B. 比较喜欢固定明确", scores: { hr: 1, sales: 2, supply: 3, brand: 1, finance: 2, it: 2 } }, { text: "C. 一样", scores: { hr: 2, sales: 2, supply: 2, brand: 2, finance: 2, it: 2 } }, { text: "D. 比较喜欢弹性自主", scores: { hr: 2, sales: 2, supply: 1, brand: 3, finance: 2, it: 1 } }, { text: "E. 非常喜欢弹性自主", scores: { hr: 3, sales: 3, supply: 1, brand: 3, finance: 3, it: 1 } }] },
     { modulePart: "PART 5", moduleTitle: "问题解决与决策", question: "10. 当工作中出现“计划外的突发问题”，你会？", options: [{ text: "A. 先安抚相关人员情绪，再一起分析解决方案", scores: { hr: 3, sales: 2, supply: 1, brand: 2, finance: 1, it: 1 } }, { text: "B. 立刻暂停现有工作，优先梳理问题根源和影响范围", scores: { hr: 1, sales: 1, supply: 2, brand: 1, finance: 3, it: 3 } }, { text: "C. 快速提出2-3个临时应对方案，边执行边完善", scores: { hr: 1, sales: 3, supply: 3, brand: 2, finance: 2, it: 2 } }, { text: "D. 第一时间联系相关负责人，明确分工后同步推进", scores: { hr: 2, sales: 2, supply: 2, brand: 1, finance: 1, it: 2 } }] },
     { modulePart: "PART 5", moduleTitle: "问题解决与决策", question: "11. 做重要决策时，你更依赖的依据是？", options: [{ text: "A. 人的反馈", scores: { hr: -1, sales: 3, supply: 1, brand: 2, finance: 1, it: 1 } }, { text: "B. 客观数据", scores: { hr: 0, sales: 1, supply: 2, brand: 1, finance: 3, it: 3 } }, { text: "C. 创新价值", scores: { hr: 1, sales: 2, supply: 1, brand: 3, finance: 1, it: 1 } }, { text: "D. 实操可行性", scores: { hr: 2, sales: 2, supply: 3, brand: 2, finance: 2, it: 2 } }] },
@@ -36,35 +37,33 @@ const questionEl = document.getElementById('question');
 const optionsContainerEl = document.getElementById('options-container');
 const resultImageEl = document.getElementById('result-image');
 const progressBar = document.getElementById('progress-bar');
-const prevBtn = document.getElementById('prev-btn'); // 新增：获取“上一题”按钮
-const decoBearImg = document.getElementById('deco-bear-img'); // 获取小熊图片元素
+const prevBtn = document.getElementById('prev-btn'); 
+const decoBearImg = document.getElementById('deco-bear-img'); 
 
 // 初始化状态变量
 let currentQuestionIndex = 0;
 let scores = { renli: 0, xiaoshou: 0, gongyinglian: 0, pinpai: 0, caiwu: 0, jishu: 0 };
 const dimensionMap = { hr: 'renli', sales: 'xiaoshou', supply: 'gongyinglian', brand: 'pinpai', finance: 'caiwu', it: 'jishu' };
-let answerHistory = []; // 新增：用于记录每一步的分数对象
+let answerHistory = []; 
 
 // 绑定开始按钮事件
 startBtn.addEventListener('click', () => {
     welcomeContainer.style.display = 'none';
     quizContainer.style.display = 'block';
-    decoBearImg.style.display = 'block'; // 显示小熊
+    decoBearImg.style.display = 'block'; 
     loadQuestion();
 });
 
-// 新增：绑定“上一题”按钮事件
+// 绑定“上一题”按钮事件
 prevBtn.addEventListener('click', () => {
     if (currentQuestionIndex > 0) {
-        // 1. 撤销上一题的分数
-        const lastScores = answerHistory.pop(); // 取出并移除上一次的答案分数
+        const lastScores = answerHistory.pop(); 
         for (const key in lastScores) {
             if (dimensionMap[key]) {
                 scores[dimensionMap[key]] -= lastScores[key];
             }
         }
         
-        // 2. 返回上一题
         currentQuestionIndex--;
         loadQuestion();
     }
@@ -72,7 +71,6 @@ prevBtn.addEventListener('click', () => {
 
 
 function loadQuestion() {
-    // 根据当前题号决定是否显示“上一题”按钮
     if (currentQuestionIndex > 0) {
         prevBtn.style.display = 'block';
     } else {
@@ -81,7 +79,6 @@ function loadQuestion() {
 
     const currentQuizData = quizData[currentQuestionIndex];
     
-    // 更新模块标题、题号和问题文本
     moduleTitleEl.innerText = `${currentQuizData.modulePart} ${currentQuizData.moduleTitle}`;
     questionCounterEl.innerText = `${currentQuestionIndex + 1}/${quizData.length}`; 
     questionEl.innerText = currentQuizData.question;
@@ -101,17 +98,14 @@ function loadQuestion() {
 }
 
 function selectAnswer(optionScores) {
-    // 1. 记录本题分数，用于后续返回
     answerHistory.push(optionScores);
 
-    // 2. 加上本题的分数
     for (const key in optionScores) {
         if (dimensionMap[key]) {
             scores[dimensionMap[key]] += optionScores[key];
         }
     }
     
-    // 3. 前往下一题或显示结果
     currentQuestionIndex++;
     if (currentQuestionIndex < quizData.length) {
         loadQuestion();
@@ -123,7 +117,7 @@ function selectAnswer(optionScores) {
 
 function showResults() {
     quizContainer.style.display = 'none';
-    decoBearImg.style.display = 'none'; // 隐藏小熊
+    decoBearImg.style.display = 'none'; 
     resultContainer.style.display = 'block';
 
     let maxScore = -Infinity;
