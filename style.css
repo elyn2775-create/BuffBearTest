@@ -151,13 +151,15 @@ body {
     border-color: var(--primary-color);
 }
 
+/* --- 这里是修改的部分 --- */
 .deco-bear {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 85px; /* 稍微缩小一点，更精致 */
-    opacity: 0.7;
-    pointer-events: none;
+    position: fixed; /* 改为fixed，相对于浏览器窗口定位 */
+    bottom: 20px;    /* 离底部20px */
+    right: 20px;     /* 离右侧20px */
+    width: 90px;     /* 可以根据喜好微调大小 */
+    opacity: 1;      /* 透明度设为1，更清晰 */
+    pointer-events: none; /* 确保它不会干扰鼠标点击 */
+    z-index: 999; /* 确保它在最上层 */
 }
 
 
