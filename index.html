@@ -7,20 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="quiz-container" id="quiz">
+    <div class="container" id="welcome-container">
+        <img src="welcome.jpg" alt="欢迎来到Buff熊测试" class="welcome-image">
+        <button class="start-btn" id="start-btn">开始测试</button>
+    </div>
+
+    <div class="container quiz-container" id="quiz" style="display: none;">
+        <div class="logos-container">
+            <img src="logo1.png" alt="Logo 1" class="logo">
+            <img src="logo2.png" alt="Logo 2" class="logo">
+        </div>
+
         <div class="progress-container">
             <div id="progress-bar"></div>
         </div>
         <div class="quiz-header">
+            <div class="question-header-info">
+                <h3 id="module-title">模块标题加载中...</h3>
+                <span id="question-counter"></span>
+            </div>
             <h2 id="question">问题加载中...</h2>
             <div id="options-container"></div>
         </div>
+        <img src="deco-bear.png" alt="装饰" class="deco-bear">
     </div>
 
-    <div class="result-container" id="result" style="display: none;">
+    <div class="container result-container" id="result" style="display: none;">
         <img id="result-image" src="" alt="你的Buff熊人格">
         <p class="tip-text">长按图片，即可保存你的专属Buff熊</p>
-        <button onclick="location.reload()">重新测试</button>
+        <button class="restart-btn" onclick="location.reload()">重新测试</button>
     </div>
 
     <script src="script.js"></script>
