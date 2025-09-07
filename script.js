@@ -1,4 +1,4 @@
-// ---- 问卷题目和分数数据 (增加了moduleTitle和modulePart) ----
+// ---- 问卷题目和分数数据 ----
 const quizData = [
     { modulePart: "PART 1", moduleTitle: "专业与知识", question: "1. 你的专业是？", options: [{ text: "A. 工科", scores: { hr: 1, sales: 1, supply: 3, brand: 1, finance: 2, it: 3 } }, { text: "B. 文科", scores: { hr: 3, sales: 2, supply: 1, brand: 2, finance: 1, it: 1 } }, { text: "C. 商科", scores: { hr: 3, sales: 3, supply: 2, brand: 3, finance: 3, it: 1 } }, { text: "D. 理科", scores: { hr: 1, sales: 1, supply: 2, brand: 1, finance: 3, it: 2 } }, { text: "E. 交叉学科", scores: { hr: 2, sales: 2, supply: 3, brand: 2, finance: 2, it: 3 } }] },
     { modulePart: "PART 2", moduleTitle: "性格与行为模式", question: "2. 当需要完成一项陌生任务时，你会先？", options: [{ text: "A. 寻求过往经验避免“踩坑”", scores: { hr: 3, sales: 2, supply: 1, brand: 2, finance: 1, it: 1 } }, { text: "B. 自己查阅资料梳理框架", scores: { hr: 1, sales: 1, supply: 2, brand: 1, finance: 3, it: 3 } }, { text: "C. 先实践并不断调整策略", scores: { hr: 1, sales: 2, supply: 3, brand: 2, finance: 2, it: 2 } }, { text: "D. 召集同事头脑风暴，创新想法", scores: { hr: 2, sales: 3, supply: 1, brand: 3, finance: 1, it: 1 } }] },
@@ -36,25 +36,53 @@ const questionEl = document.getElementById('question');
 const optionsContainerEl = document.getElementById('options-container');
 const resultImageEl = document.getElementById('result-image');
 const progressBar = document.getElementById('progress-bar');
+const prevBtn = document.getElementById('prev-btn'); // 新增：获取“上一题”按钮
+const decoBearImg = document.getElementById('deco-bear-img'); // 获取小熊图片元素
 
 // 初始化状态变量
 let currentQuestionIndex = 0;
 let scores = { renli: 0, xiaoshou: 0, gongyinglian: 0, pinpai: 0, caiwu: 0, jishu: 0 };
 const dimensionMap = { hr: 'renli', sales: 'xiaoshou', supply: 'gongyinglian', brand: 'pinpai', finance: 'caiwu', it: 'jishu' };
+let answerHistory = []; // 新增：用于记录每一步的分数对象
 
 // 绑定开始按钮事件
 startBtn.addEventListener('click', () => {
     welcomeContainer.style.display = 'none';
     quizContainer.style.display = 'block';
+    decoBearImg.style.display = 'block'; // 显示小熊
     loadQuestion();
 });
 
+// 新增：绑定“上一题”按钮事件
+prevBtn.addEventListener('click', () => {
+    if (currentQuestionIndex > 0) {
+        // 1. 撤销上一题的分数
+        const lastScores = answerHistory.pop(); // 取出并移除上一次的答案分数
+        for (const key in lastScores) {
+            if (dimensionMap[key]) {
+                scores[dimensionMap[key]] -= lastScores[key];
+            }
+        }
+        
+        // 2. 返回上一题
+        currentQuestionIndex--;
+        loadQuestion();
+    }
+});
+
+
 function loadQuestion() {
+    // 根据当前题号决定是否显示“上一题”按钮
+    if (currentQuestionIndex > 0) {
+        prevBtn.style.display = 'block';
+    } else {
+        prevBtn.style.display = 'none';
+    }
+
     const currentQuizData = quizData[currentQuestionIndex];
     
     // 更新模块标题、题号和问题文本
     moduleTitleEl.innerText = `${currentQuizData.modulePart} ${currentQuizData.moduleTitle}`;
-    // 修复了这里的拼写错误：currentQuestion-Index 改为 currentQuestionIndex
     questionCounterEl.innerText = `${currentQuestionIndex + 1}/${quizData.length}`; 
     questionEl.innerText = currentQuizData.question;
     
@@ -73,11 +101,17 @@ function loadQuestion() {
 }
 
 function selectAnswer(optionScores) {
+    // 1. 记录本题分数，用于后续返回
+    answerHistory.push(optionScores);
+
+    // 2. 加上本题的分数
     for (const key in optionScores) {
         if (dimensionMap[key]) {
             scores[dimensionMap[key]] += optionScores[key];
         }
     }
+    
+    // 3. 前往下一题或显示结果
     currentQuestionIndex++;
     if (currentQuestionIndex < quizData.length) {
         loadQuestion();
@@ -89,6 +123,7 @@ function selectAnswer(optionScores) {
 
 function showResults() {
     quizContainer.style.display = 'none';
+    decoBearImg.style.display = 'none'; // 隐藏小熊
     resultContainer.style.display = 'block';
 
     let maxScore = -Infinity;

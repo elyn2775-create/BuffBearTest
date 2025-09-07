@@ -67,16 +67,16 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    display: flex; /* 使用 Flexbox 让Logo并排 */
-    gap: 8px; /* Logo之间的间距 */
+    display: flex;
+    gap: 8px;
     align-items: center;
 }
 
 .logo {
-    width: 35px; /* 调整Logo大小 */
+    width: 35px;
     height: 35px;
     border-radius: 50%;
-    object-fit: contain; /* 确保图片完整显示 */
+    object-fit: contain;
 }
 
 
@@ -131,6 +131,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    /* margin-bottom 不再需要为小熊留空间，因为小熊脱离了此容器 */
+    margin-bottom: 25px; 
 }
 
 .option-btn {
@@ -151,15 +153,43 @@ body {
     border-color: var(--primary-color);
 }
 
-/* --- 这里是修改的部分 --- */
-.deco-bear {
-    position: fixed; /* 改为fixed，相对于浏览器窗口定位 */
+/* --- 页脚容器：只用于放置“上一题”按钮 --- */
+.quiz-footer {
+    display: flex;
+    justify-content: flex-start; /* 将按钮靠左对齐 */
+    margin-top: 20px; /* 按钮和选项之间留一些空间 */
+}
+
+
+/* --- “上一题”按钮样式 --- */
+.nav-btn {
+    background-color: #f0f0f0;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    background-color: #e0e0e0;
+    border-color: #aaa;
+}
+
+
+/* --- 小熊样式 (全局固定定位，由JS控制显示隐藏) --- */
+#deco-bear-img { /* 使用ID选择器，确保覆盖性 */
+    position: fixed; /* 固定在视口，不随滚动条移动 */
     bottom: 20px;    /* 离底部20px */
     right: 20px;     /* 离右侧20px */
     width: 90px;     /* 可以根据喜好微调大小 */
-    opacity: 1;      /* 透明度设为1，更清晰 */
+    height: auto;    /* 保持图片比例 */
+    z-index: 1000;   /* 确保它在最上层 */
     pointer-events: none; /* 确保它不会干扰鼠标点击 */
-    z-index: 999; /* 确保它在最上层 */
+    display: none;   /* 默认隐藏，由JS控制显示 */
 }
 
 
