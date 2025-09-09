@@ -21,7 +21,8 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
-    padding: 15px;
+    /* 为底部文字留出空间，防止内容被遮挡 */
+    padding: 15px 15px 40px 15px; 
 }
 
 .container {
@@ -131,7 +132,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    /* margin-bottom 不再需要为小熊留空间，因为小熊脱离了此容器 */
     margin-bottom: 25px; 
 }
 
@@ -153,15 +153,12 @@ body {
     border-color: var(--primary-color);
 }
 
-/* --- 页脚容器：只用于放置“上一题”按钮 --- */
 .quiz-footer {
     display: flex;
-    justify-content: flex-start; /* 将按钮靠左对齐 */
-    margin-top: 20px; /* 按钮和选项之间留一些空间 */
+    justify-content: flex-start;
+    margin-top: 20px;
 }
 
-
-/* --- “上一题”按钮样式 --- */
 .nav-btn {
     background-color: #f0f0f0;
     color: #555;
@@ -180,16 +177,15 @@ body {
 }
 
 
-/* --- 小熊样式 (全局固定定位，由JS控制显示隐藏) --- */
-#deco-bear-img { /* 使用ID选择器，确保覆盖性 */
-    position: fixed; /* 固定在视口，不随滚动条移动 */
-    bottom: 20px;    /* 离底部20px */
-    right: 20px;     /* 离右侧20px */
-    width: 90px;     /* 可以根据喜好微调大小 */
-    height: auto;    /* 保持图片比例 */
-    z-index: 1000;   /* 确保它在最上层 */
-    pointer-events: none; /* 确保它不会干扰鼠标点击 */
-    display: none;   /* 默认隐藏，由JS控制显示 */
+#deco-bear-img {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 90px;
+    height: auto;
+    z-index: 1000;
+    pointer-events: none;
+    display: none;
 }
 
 
@@ -215,4 +211,17 @@ body {
     font-size: 1em;
     margin-top: 15px;
     width: 100%;
+}
+
+/* --- 这里是新增的样式 --- */
+.footer-disclaimer {
+    position: fixed;      /* 固定在屏幕上 */
+    bottom: 10px;         /* 离底部10像素 */
+    left: 0;              /* 撑满整个宽度 */
+    right: 0;
+    text-align: center;   /* 文字居中 */
+    font-size: 12px;      /* 字体大小 */
+    color: #888;          /* 字体颜色为灰色，不那么显眼 */
+    z-index: 2000;        /* 确保它在最上层 */
+    pointer-events: none; /* 让鼠标可以“穿透”它，不影响点击 */
 }
